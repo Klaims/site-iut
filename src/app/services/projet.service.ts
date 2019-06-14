@@ -21,6 +21,7 @@ export class ProjetService {
   saveProjets() {
 
     firebase.database().ref('/projets').set(this.projets);
+    console.log( this.projets );
   }
 
   getProjets() {
@@ -29,7 +30,7 @@ export class ProjetService {
       .on('value', (data) => {
 
         this.projets = data.val() ? data.val() : [];
-        this.emitProjets;
+        this.emitProjets();
       });
   }
 
@@ -58,8 +59,9 @@ export class ProjetService {
   createProjet(proj: Projet) {
 
     this.projets.push(proj);
-    this.saveProjets;
-    this.emitProjets;
+
+    this.saveProjets();
+    this.emitProjets();
   }
 
   removeProjet(proj: Projet) {
@@ -75,7 +77,7 @@ export class ProjetService {
     );
 
     this.projets.splice(index, 1);
-    this.saveProjets;
-    this.emitProjets;
+    this.saveProjets();
+    this.emitProjets();
   }
 }

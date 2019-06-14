@@ -36,6 +36,6 @@ export class ListeComponent implements OnInit {
 
   ngOnDestroy() {
 
-    this.projetsService.projetsSubject.unsubscribe();
+    this.projetSub.unsubscribe();
   }
 }

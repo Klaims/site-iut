@@ -1,3 +1,22 @@
-<p>
-  ajout works!
-</p>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1 id="titre">Enregistrer un nouveau projet</h1>
+      <form [formGroup]="projetForm" (ngSubmit)="onSaveProjet()">
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" id="title"
+                 class="form-control" formControlName="title">
+        </div>
+        <div class="form-group">
+          <label for="resume">Résumé</label>
+          <textarea id="resume"
+                    class="form-control" formControlName="resume">
+          </textarea>
+        </div>
+        <button class="btn btn-success" [disabled]="projetForm.invalid"
+                type="submit">Enregistrer
+        </button>
+  
+      </form>
+    </div>
+  </div>

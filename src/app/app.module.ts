@@ -5,16 +5,17 @@ import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 
-import { AppRoutingModule } from '../app-routing.module';
-import { AppComponent } from '../app.component';
-import { HeaderComponent } from '../header/header.component';
-import { AccueilComponent } from '../accueil/accueil.component';
-import { ListeComponent } from '../liste/liste.component';
-import { RechercheComponent } from '../recherche/recherche.component';
-import { AuthComponent } from '../auth/auth.component';
-import { AuthService } from './auth.service';
-import { AuthGuardService } from './auth-guard.service';
-import { AjoutComponent } from '../ajout/ajout.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { ListeComponent } from './liste/liste.component';
+import { RechercheComponent } from './recherche/recherche.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AjoutComponent } from './ajout/ajout.component';
+import { ProjetComponent } from './projet/projet.component';
 
 const appRoutes : Routes = [
 
@@ -34,7 +35,8 @@ const appRoutes : Routes = [
     ListeComponent,
     RechercheComponent,
     AuthComponent,
-    AjoutComponent
+    AjoutComponent,
+    ProjetComponent
   ],
   imports: [
     BrowserModule,
