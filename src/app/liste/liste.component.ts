@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ProjetService } from '../services/projet.service';
+import { Router } from '@angular/router';
+import { Projet } from '../models/projet.model';
 
 @Component({
   selector: 'app-liste',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeComponent implements OnInit {
 
-  constructor() { }
+  projets : Projet[];
+  projetSub: Subscription;
+
+  constructor(private projetsService: ProjetService, private router: Router) { }
 
   ngOnInit() {
+
+    this.projetSub = this.projetsService.projetsSubject.subscribe(
+
+      (projets : Projet[]) => {
+
+        this.projets = projets;
+      }
+    );
+
+    this.projetsService.emitProjets();
   }
 
+  onViewProjet(id : Number) {
+
+    this.router.navigate(['/projets','view',id]);
+  }
+
+  ngOnDestroy() {
+
+    this.projetsService.projetsSubject.unsubscribe();
+  }
 }
