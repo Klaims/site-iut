@@ -39,9 +39,23 @@
 
 #projets-accueil {
 
-    background-color: black;
+    width: 1000px;
+    height: 400px;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.projet-une {
+
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    background-color: rgb(0, 110, 255);
+}
+ 
 .actif {
 
     background-color: rgb(0, 110, 255);
@@ -53,4 +67,16 @@
 
     display: block;
     width: 100%;
+}
+
+.projet {
+
+    margin: 10px;
+    text-align: left;
+}
+
+.projet:hover {
+
+    background-color:rgb(0, 110, 255);
+    color: white;
 }

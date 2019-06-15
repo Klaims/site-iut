@@ -10,8 +10,8 @@ import { Router } from '@angular/router'
 })
 export class AuthComponent implements OnInit {
 
-  private signInForm: FormGroup;
-  private errorMessage: string;
+  signInForm: FormGroup;
+  errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
