@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class AjoutComponent implements OnInit {
 
   projetForm: FormGroup;
+  fileIsUploading = false;
+  fileUrl: string;
+  fileUploaded = false;
 
   constructor(private formBuilder: FormBuilder, private projetsService: ProjetService,
               private router: Router) { }
@@ -23,17 +26,20 @@ export class AjoutComponent implements OnInit {
   initForm() {
     this.projetForm = this.formBuilder.group({
       title: ['', Validators.required],
-      resume: ['', Validators.required]
+      resume: ['', Validators.required],
+      texte: '',
+      url: ''
     });
   }
   
   onSaveProjet() {
     const title = this.projetForm.get('title').value;
     const resume = this.projetForm.get('resume').value;
-
+    
     let newProjet = new Projet(title, resume);
-    newProjet.titre = title;
-    newProjet.resume = resume;
+
+    const texte = this.projetForm.get('texte').value;
+    newProjet.texte = texte;
 
     this.projetsService.createProjet(newProjet);
     this.router.navigate(['/liste']);

@@ -21,7 +21,6 @@ export class ProjetService {
   saveProjets() {
 
     firebase.database().ref('/projets').set(this.projets);
-    console.log( this.projets );
   }
 
   getProjets() {

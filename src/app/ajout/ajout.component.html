@@ -13,10 +13,19 @@
                     class="form-control" formControlName="resume">
           </textarea>
         </div>
+        <div class="form-group">
+          <label for="texte">Texte principal</label>
+          <textarea id="texte"
+                    class="form-control" formControlName="texte">
+          </textarea>
+        </div>
+        <p>Image</p>
+        <div class="form-group">
+          <input type="file">
+        </div>
         <button class="btn btn-success" [disabled]="projetForm.invalid"
-                type="submit">Enregistrer
+        type="submit">Enregistrer
         </button>
-  
       </form>
     </div>
   </div>
